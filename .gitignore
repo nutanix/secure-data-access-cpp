@@ -1,0 +1,27 @@
+# Build output
+build/
+cmake-build-*/
+
+# CI-provisioned C++ deps (protobuf/gRPC/GTest) under the Jenkins workspace
+.sda-deps/
+.sda-deps-src/
+
+# Proto is intentionally NOT published: it is kept locally, regenerated into
+# generated/ via the regen script, and only the generated C++ is committed.
+# Keeping it out of the repo hides the wire contract. The committed
+# generated/vdisk.proto.sha256 fingerprint lets reviewers detect drift.
+proto/
+*.proto
+
+# IDE / editor
+.idea/
+.vscode/
+.settings/
+*.iml
+
+# OS
+.DS_Store
+
+# Local secrets / certs
+ca.pem
+*.pem

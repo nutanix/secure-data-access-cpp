@@ -1,0 +1,30 @@
+# Copyright (c) 2026 Nutanix Inc. All rights reserved.
+#
+# Formatting for the hand-written C++ sources in this repo. Generated protobuf
+# and gRPC stubs under generated/ are machine output and are not formatted here.
+#
+# Format with clang-format 18.
+# Newer major versions can wrap some constructs differently and cause the CI
+# lint stage to fail even on locally "clean" files.
+---
+Language: Cpp
+BasedOnStyle: Google
+ColumnLimit: 80
+IndentWidth: 2
+# Nutanix house style: pointer '*' binds to the name, reference '&' binds to the
+# type (e.g. 'const char *name', 'const std::string& value').
+DerivePointerAlignment: false
+PointerAlignment: Right
+ReferenceAlignment: Left
+# The sources are authored with one wrapped parameter/argument per line and a
+# 2-space continuation indent, rather than Google's bin-packed 4-space style.
+# When a call/declaration wraps, break right after the '(' instead of aligning
+# every argument to the opening bracket.
+AlignAfterOpenBracket: AlwaysBreak
+ContinuationIndentWidth: 2
+BinPackParameters: false
+BinPackArguments: false
+AllowAllParametersOfDeclarationOnNextLine: false
+AllowAllArgumentsOnNextLine: false
+# Preserve intentionally long explanatory comments instead of reflowing them.
+ReflowComments: false
